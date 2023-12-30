@@ -8,7 +8,17 @@
       dest: /etc/yum.repos.d/mongodb.repo
   - name: install mongodb in the mongodb server
     ansible.builtin.command: dnf install mongodb-org -y 
-    
+  - name: start and enable mongodb
+    ansible.builtin.service:
+      name: mongod
+      state: started
+      enabled: yes
+  - name: repalce 127.0.0.1 with 0.0.0.0 in mongod config file
+    ansible.builtin.replace:
+      path: /etc/mongod.conf
+      regexp: '127.0.0.1'
+      replace: '0.0.0.0'
+      
 
 
 
