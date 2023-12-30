@@ -18,7 +18,11 @@
       path: /etc/mongod.conf
       regexp: '127.0.0.1'
       replace: '0.0.0.0'
-      
+  - name: restart mangod
+    ansible.builtin.service:
+      name: mangod
+      state: restarted
+          
 
 
 
