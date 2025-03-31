@@ -47,7 +47,7 @@
       daemon_reload: true
       state: started
       enabled: true
-      
+
   - name: download mongodb client to load schema into mongodb
     ansible.builtin.copy: 
       src: mongo.repo
@@ -59,4 +59,4 @@
       state: present
 
   - name: load schema into mongodb
-    ansible.builtin.shell: "mongo --host MONGODB-SERVER-IPADDRESS </app/schema/catalogue.js"
+    ansible.builtin.shell: "mongo --host 44.201.245.100 </app/schema/catalogue.js"
