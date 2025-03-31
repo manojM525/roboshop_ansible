@@ -16,7 +16,7 @@
       enabled: yes
   
   - name: make mongodb accessable to all
-    ansible.buitlin.replace:
+    ansible.builtin.replace:
       path: /etc/mongod.conf
       regexp: '127.0.0.1'
       replace: '0.0.0.0'
