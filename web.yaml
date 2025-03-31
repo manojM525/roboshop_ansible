@@ -17,7 +17,7 @@
     ansible.builtin.file:
       path: /usr/share/naginx/html
       state: absent
-       
+
   - name: create html directory
     ansible.builtin.file:
       path: /usr/share/nginx/html
@@ -31,7 +31,7 @@
   - name: unzip files into html directory
     ansible.builtin.unarchive:
       src: /tmp/web.zip.zip
-      dest: /usr/share/naginx/html
+      dest: /usr/share/naginx/html/
       remote_src: yes
 
   - name: create nginx reverse proxy configuration
