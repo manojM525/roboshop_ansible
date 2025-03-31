@@ -35,6 +35,8 @@
 
   - name: install dependencies
     ansible.builtin.command: "npm install"
+    args:
+      chdir: /app
 
   - name: setup to run application as a systemd service
     ansible.builtin.copy:
