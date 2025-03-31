@@ -1,0 +1,27 @@
+- name: setup mongodb databse server
+  hosts: mongodb
+  become: yes
+  tasks:
+  - name: copy mongodb repo to remote server
+    ansible.builtin.copy:
+      src: mongo.repo
+      dest: /etc/yum.repos.d
+  
+  - name: install mongodb 
+    ansible.builtin.command: dnf install mongodb-org -y
+  
+  - name: start and enable mongodb
+    ansible.builtin.service:
+      state: started
+      enabled: yes
+  
+  - name: make mongodb accessable to all
+    ansible.buitlin.repalce:
+      path: /etc/mongod.conf
+      regexp: '127.0.0.1'
+      replace: '0.0.0.0'
+  
+  - name: restart mongodb server
+    ansible.builtin.service:
+      state: restarted
+  
