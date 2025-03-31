@@ -61,4 +61,4 @@
       state: present
 
   - name: load schema into mongodb
-    ansible.builtin.shell: "mongo --host 44.201.245.100 </app/schema/catalogue.js"
+    ansible.builtin.shell: "mongo --host 172.31.95.70 </app/schema/catalogue.js"
